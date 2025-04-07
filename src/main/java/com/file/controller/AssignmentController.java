@@ -1,6 +1,6 @@
 package com.file.controller;
 import com.file.dto.Book;
-import com.file.service.AssignmentService;
+//import com.file.service.AssignmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,39 +16,39 @@ import java.util.stream.Stream;
 @RequestMapping("/files")
 public class AssignmentController {
 
-    @Autowired
-    private AssignmentService assignmentService;
-
-    @PostMapping("/upload")
-    public ResponseEntity<String> uploadAssignment(@RequestParam("assignment") MultipartFile assignment){
-        String response = assignmentService.uploadAssignment(assignment);
-        return ResponseEntity.status(HttpStatus.OK).body(response);
-
-    }
-
-    @GetMapping("/download/{fileName}")
-    public ResponseEntity downloadAssignment(@PathVariable String fileName) {
-
-        byte[] response = assignmentService.downloadAssignment(fileName);
-
-        return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType("application/pdf"))
-                .header(
-                        HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment; filename=\"" + fileName + "\""
-                )
-                .body(response);
-    }
-    @CrossOrigin("http://localhost:4200")
-    @GetMapping("/find")
-    public List<Book> getBooks(){
-        return Stream.of(new Book(1,"java",55),
-                        new Book(2,"python",66), new Book(3,"jjj", 77))
-                .collect(Collectors.toList());
-    }
+//    @Autowired
+//    private AssignmentService assignmentService;
+//
+//    @PostMapping("/upload")
+//    public ResponseEntity<String> uploadAssignment(@RequestParam("assignment") MultipartFile assignment){
+//        String response = assignmentService.uploadAssignment(assignment);
+//        return ResponseEntity.status(HttpStatus.OK).body(response);
+//
+//    }
+//
+//    @GetMapping("/download/{fileName}")
+//    public ResponseEntity downloadAssignment(@PathVariable String fileName) {
+//
+//        byte[] response = assignmentService.downloadAssignment(fileName);
+//
+//        return ResponseEntity.ok()
+//                .contentType(MediaType.parseMediaType("application/pdf"))
+//                .header(
+//                        HttpHeaders.CONTENT_DISPOSITION,
+//                        "attachment; filename=\"" + fileName + "\""
+//                )
+//                .body(response);
+//    }
+//    @CrossOrigin("http://localhost:4200")
+//    @GetMapping("/find")
+//    public List<Book> getBooks(){
+//        return Stream.of(new Book(1,"java",55),
+//                        new Book(2,"python",66), new Book(3,"jjj", 77))
+//                .collect(Collectors.toList());
+//    }
 
     @GetMapping
     public String msg(){
-        retrun "hello world";
+         return "hello world";
     }
 }
