@@ -49,6 +49,6 @@ public class AssignmentController {
         
     @GetMapping
     public String msg(){
-         return "nitish singh java developer";
+         return "nitish singh java developer 1";
     }
 }
