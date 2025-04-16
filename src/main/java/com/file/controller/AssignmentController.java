@@ -46,9 +46,9 @@ public class AssignmentController {
 //                        new Book(2,"python",66), new Book(3,"jjj", 77))
 //                .collect(Collectors.toList());
 //    }
-
+        
     @GetMapping
     public String msg(){
-         return "hello world";
+         return "nitish singh java developer";
     }
 }
