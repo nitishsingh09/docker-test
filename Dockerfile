@@ -1,8 +1,8 @@
 FROM openjdk:8
 
-COPY target/demo-app.jar /usr/app
+COPY target/demo-app.jar /usr/app/
 
-WORKDIR /usr/app
+WORKDIR /usr/app/
 
 EXPOSE 8080
 
